@@ -35,28 +35,28 @@ public class Head extends JComponent{
         switch (direction) {
             case 0: // arriba
                 y -= SIZE;
-                if (y < 0) {
+                if (y < 20) {
                     y = 0;
                     direction = GLOBAL.SOUTH; // cambia abajo
                 }
                 break;
             case 1: // derecha
                 x += SIZE;
-                if (x + SIZE > getParent().getWidth()) {
+                if (x + SIZE > getParent().getWidth()-20) {
                     x = getParent().getWidth() - SIZE;
                     direction = GLOBAL.WEST; // cambia a izquierda
                 }
                 break;
             case 2: // abajo
                 y += SIZE;
-                if (y + SIZE > getParent().getHeight()) {
+                if (y + SIZE > getParent().getHeight()-20) {
                     y = getParent().getHeight() - SIZE;
                     direction = GLOBAL.NORTH; // cambia a arriba
                 }
                 break;
             case 3: // izquierda
                 x -= SIZE;
-                if (x < 0) {
+                if (x < 20) {
                     x = 0;
                     direction = GLOBAL.EAST; // cambia a derecha
                 }
