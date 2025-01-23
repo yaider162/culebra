@@ -7,7 +7,6 @@ public class GLOBAL {
     public static int SOUTH = 2;
     public static int WEST = 3;
 
-    public static int TILE_SIZE = 20;
     public static int WIDTH = 800;
     public static int HEIGHT = 600;
 

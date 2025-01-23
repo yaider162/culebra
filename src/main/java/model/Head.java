@@ -3,11 +3,10 @@ package model;
 import globals.GLOBAL;
 import lombok.Getter;
 import lombok.Setter;
+import view.SnakePanel;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 
 @Getter
 @Setter
@@ -30,8 +29,9 @@ public class Head extends JComponent{
         g.setColor(Color.BLACK);
         g.fillRect(0, 0, SIZE, SIZE);
     }
-// TODO 2: implementar la cola
     public void move() {
+        int prevX = x;
+        int prevY = y;
         switch (direction) {
             case 0: // arriba
                 y -= SIZE;
@@ -49,7 +49,7 @@ public class Head extends JComponent{
                 break;
             case 2: // abajo
                 y += SIZE;
-                if (y + SIZE > getParent().getHeight()-20) {
+                if (y + SIZE > getParent().getHeight()-20d) {
                     y = getParent().getHeight() - SIZE;
                     direction = GLOBAL.NORTH; // cambia a arriba
                 }
@@ -64,5 +64,7 @@ public class Head extends JComponent{
         }
         setLocation(x, y);
         repaint();
+        ((SnakePanel) getParent()).updateTail(prevX, prevY);
     }
+
 }

@@ -3,7 +3,7 @@ package controller;
 import view.Frame;
 
 public class Controller {
-    public static void main(String[] args) {
+    public void start() {
         Frame frame = new Frame();
         frame.start();
     }
