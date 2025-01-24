@@ -4,14 +4,10 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Tail extends JComponent {
-    private int x;
-    private int y;
     private final int SIZE = 20;
     private final Color color = randomColor();
 
     public Tail(int x, int y) {
-        this.x = x;
-        this.y = y;
         setBounds(x, y, SIZE, SIZE);
     }
 

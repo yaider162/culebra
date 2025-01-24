@@ -10,6 +10,8 @@ public class GLOBAL {
     public static int WIDTH = 800;
     public static int HEIGHT = 600;
 
+    public static int SIZE = 20; // tamaño de la celda
+
     public static int SNAKE_SPEED = 100; // controla la velocidad del head
 
     public static int SNAKE_INITIAL_X = 400;

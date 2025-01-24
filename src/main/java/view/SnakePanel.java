@@ -1,6 +1,8 @@
 package view;
 
 import globals.GLOBAL;
+import lombok.Getter;
+import model.Food;
 import model.Head;
 import model.Tail;
 
@@ -13,6 +15,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
+@Getter
 public class SnakePanel extends JPanel implements KeyListener {
     private final Head head;
     private final ArrayList<Tail> tailSegments;
@@ -34,8 +37,8 @@ public class SnakePanel extends JPanel implements KeyListener {
         timer.start();
     }
 
-    private void scheduleTailAddition() {
-        scheduler.scheduleAtFixedRate(this::addTailSegment, 4, 4, TimeUnit.SECONDS);
+    public void scheduleTailAddition() {
+        scheduler.scheduleAtFixedRate(this::addFood, 4, 4, TimeUnit.SECONDS);
     }
 
     public void updateTail(int prevX, int prevY) {
@@ -56,6 +59,11 @@ public class SnakePanel extends JPanel implements KeyListener {
         Tail newSegment = new Tail(tailX, tailY);
         tailSegments.add(newSegment);
         this.add(newSegment);
+        this.repaint();
+    }
+    public void addFood() {
+        Food food = new Food();
+        this.add(food);
         this.repaint();
     }
 
@@ -87,5 +95,12 @@ public class SnakePanel extends JPanel implements KeyListener {
     }
     @Override
     public void keyReleased(KeyEvent e) {
+    }
+    public void checkFoodCollision() {
+        for (Component component : getComponents()) {
+            if (component instanceof Food) {
+                ((Food) component).checkHead();
+            }
+        }
     }
 }

@@ -14,7 +14,7 @@ public class Head extends JComponent{
     private int x;
     private int y;
     private int direction; // 0: arriba, 1: derecha, 2: abajo, 3: izquierda
-    private final int SIZE = 20;
+    private final int SIZE = GLOBAL.SIZE;
 
     public Head(int x, int y, int direction) {
         this.x = x;
@@ -65,6 +65,7 @@ public class Head extends JComponent{
         setLocation(x, y);
         repaint();
         ((SnakePanel) getParent()).updateTail(prevX, prevY);
+        ((SnakePanel) getParent()).checkFoodCollision();
     }
 
 }

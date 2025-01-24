@@ -22,4 +22,7 @@ public class Frame extends JFrame {
         SnakePanel snakePanel = new SnakePanel();
         this.add(snakePanel);
     }
+
+    // TODO: Implementar fade de color en el tail, osea que cada tail que se vaya agregando sea un poco mas claro o oscuro respectivamente
+    // TODO: Implementar sistema de puntaje
 }
