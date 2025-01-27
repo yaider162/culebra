@@ -26,7 +26,7 @@ public class Head extends JComponent{
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.setColor(Color.BLACK);
+        g.setColor(GLOBAL.DEFAULT_COLOR);
         g.fillRect(0, 0, SIZE, SIZE);
     }
     public void move() {

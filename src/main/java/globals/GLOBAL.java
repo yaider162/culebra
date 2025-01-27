@@ -1,5 +1,9 @@
 package globals;
 
+import java.awt.*;
+import java.io.File;
+import java.io.IOException;
+
 // Aquí se encuentran todas las variables globales que se utilizan en el proyecto
 public class GLOBAL {
     public static int NORTH = 0;
@@ -19,4 +23,21 @@ public class GLOBAL {
 
     public static String TITLE = "Culebra By Yaider";
 
+    public static Color DEFAULT_COLOR = new Color(32, 32, 32);
+    public static Color BACKGROUND_COLOR = new Color(215, 210, 237);
+
+    private static final String FONT_PATH = "src/main/resources/fonts/Minecraft.ttf";
+    public static Font PIXEL_FONT;
+
+    static {
+        try {
+            PIXEL_FONT = Font.createFont(Font.TRUETYPE_FONT, new File(FONT_PATH));
+        } catch (FontFormatException | IOException e) {
+            System.out.println("JAJA fallo la fuente");
+            throw new RuntimeException(e);
+        }
+    }
+    public static Font DEFAULT_FONT = PIXEL_FONT.deriveFont(30f);
+    public static Font DEFAULT_FONT_TITLES = PIXEL_FONT.deriveFont(50f);
+    public static Font DEFAULT_FONT_SMALL = PIXEL_FONT.deriveFont(20f);
 }
